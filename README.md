@@ -12,7 +12,7 @@ int main(){
   int y = 999;
   
   __asm__(
-    "xchg 1, 0"
+    "xchg %0, %1"
     : "+m" (x), "+r" (y)
   );
   
@@ -25,5 +25,13 @@ int main(){
 ## Compiling
 
 ```
-$ gcc sample.c -o sample -masm=intel
+$ gcc sample.c -o sample #-masm=intel [optional]
+```
+
+### Output
+
+```
+$ ./sample
+999
+5
 ```
