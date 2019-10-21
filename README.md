@@ -10,12 +10,12 @@ Code snippets to embed assembly code in C programs.
 int main(){
   int x = 5;
   int y = 999;
-  
+
   __asm__(
-    "movl %edx, %eax\n"
-    "addl $2, %eax\n"
+    "xchg %0, %1"
+    : "+m" (x), "+r" (y)
   );
-  
+
   printf("%d\n", x);
   printf("%d\n", y);
   return 0;
