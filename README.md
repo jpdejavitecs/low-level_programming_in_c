@@ -12,8 +12,8 @@ int main(){
   int y = 999;
   
   __asm__(
-    "xchg %0, %1"
-    : "+m" (x), "+r" (y)
+    "movl %edx, %eax\n"
+    "addl $2, %eax\n"
   );
   
   printf("%d\n", x);
